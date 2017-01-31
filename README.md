@@ -1,5 +1,5 @@
 # Set Up
-`git clone https://github.com/brinnpaul/dgscrape.git`
+`git clone https://github.com/brinnpaul/dgscrape.git` <br />
 `pip install virtualenv` <br />
 `virtualenv env` <br />
 `. env/bin/activate` <br />
