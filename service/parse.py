@@ -7,12 +7,12 @@ class ParseDG(object):
 
     def __init__(self, keywords):
         self.keywords = keywords
-        self.base = 'http://www.dgcoursereview.com/forums/'
-        self.path = 'search.php?do=getdaily'
+        self.__base = 'http://www.dgcoursereview.com/forums/'
+        self.__path = 'search.php?do=getdaily'
         self.results = None
 
     def __get_daily(self):
-        url = self.base + self.path
+        url = self.__base + self.__path
         r = requests.get(url)
         html = r.text
         soup = BeautifulSoup(html, "html.parser")
@@ -20,7 +20,7 @@ class ParseDG(object):
         links = []
         for l in body:
             if 'thread_title' in str(l):
-                link = self.base+l.get('href')
+                link = self.__base+l.get('href')
                 link_title = l.get_text()
                 links.append({'title': link_title, 'link': link})
         return links

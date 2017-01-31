@@ -17,6 +17,7 @@ def main():
     keywords = args[1:]
     parser = ParseDG(keywords)
     mail = Mail(config)
+
     try:
         with Server(config) as server:
             def update_and_send():
@@ -36,10 +37,12 @@ def main():
                     time.sleep(1)
             else:
                 update_and_send()
+
     except Exception as e:
         print e
         print "Closing Service"
 
-main()
+if __name__ == '__main__':
+    main()
 
 
